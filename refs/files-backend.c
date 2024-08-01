@@ -245,10 +245,11 @@ static void loose_fill_ref_dir_regular_file(struct files_ref_store *refs,
 {
 	struct object_id oid;
 	int flag;
-	const char* referent = refs_resolve_ref_unsafe(&refs->base,
+	const char *referent = refs_resolve_ref_unsafe(&refs->base,
 						       refname,
 						       RESOLVE_REF_READING,
 						       &oid, &flag);
+
 	if (!referent) {
 		oidclr(&oid, the_repository->hash_algo);
 		flag |= REF_ISBROKEN;
